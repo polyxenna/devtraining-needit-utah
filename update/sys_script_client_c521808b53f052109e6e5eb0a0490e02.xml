@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>u_request_type</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>NeedIt Request Type Changed</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    if (isLoading || newValue === '') {
+        return;
+    }
+
+    //Type appropriate comment here, and begin script below
+    var oldValueLabel = "";
+    var newValueLabel = "";
+
+
+    switch (oldValue) {
+        case "hr":
+            oldValueLabel = "Human Resources";
+            break;
+        case "facilities":
+            oldValueLabel = "Facilities";
+            break;
+        case "legal":
+            oldValueLabel = "Legal";
+            break;
+        default:
+            oldValueLabel = oldValue; // Keep the old value as is if it doesn't match any case
+            break;
+    }
+
+
+    switch (newValue) {
+        case "hr":
+            newValueLabel = "Human Resources";
+            break;
+        case "facilities":
+            newValueLabel = "Facilities";
+            break;
+        case "legal":
+            newValueLabel = "Legal";
+            break;
+        default:
+            newValueLabel = newValue; // Keep the new value as is if it doesn't match any case
+            break;
+    }
+
+    g_form.addInfoMessage("Request Type changed from " + oldValueLabel + " to " + newValueLabel);
+}
+]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-09-26 15:26:25</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>c521808b53f052109e6e5eb0a0490e02</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>NeedIt Request Type Changed</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_script_client_c521808b53f052109e6e5eb0a0490e02</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-09-26 15:40:18</sys_updated_on>
+        <table>x_58872_needit_needit</table>
+        <type>onChange</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>
